@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift Management</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1>Shift Management</h1>
+        <form action="shifts.php" method="POST" class="shift-form" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="doctor">Doctor Name</label>
+                <select id="doctor" name="doctor" required>
+                    <option value="">Select Doctor</option>
+                    <option value="1">Dr. John Smith</option>
+                    <option value="2">Dr. Emma Johnson</option>
+                    <option value="3">Dr. William Brown</option>
+                    <option value="4">Dr. Olivia Davis</option>
+                    <option value="5">Dr. James Miller</option>
+                    <option value="6">Dr. Sophia Garcia</option>
+                    <option value="7">Dr. Michael Martinez</option>
+                    <option value="8">Dr. Isabella Hernandez</option>
+                    <option value="9">Dr. Benjamin Lee</option>
+                    <option value="10">Dr. Ava Walker</option>
+                    <option value="11">Dr. Lucas Perez</option>
+                    <option value="12">Dr. Mia Wilson</option>
+                    <option value="13">Dr. Alexander Taylor</option>
+                    <option value="14">Dr. Grace Anderson</option>
+                    <option value="15">Dr. Daniel Thomas</option>
+                    <option value="16">Dr. Chloe Robinson</option>
+                    <option value="17">Dr. Henry Clark</option>
+                    <option value="18">Dr. Lily Lewis</option>
+                    <option value="19">Dr. Samuel Young</option>
+                    <option value="20">Dr. Victoria King</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="shift_type">Shift Type</label>
+                <select id="shift_type" name="shift_type" required>
+                    <option value="Day">Day</option>
+                    <option value="Night">Night</option>
+                    <option value="On-call">On-call</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="shift_date">Shift Date</label>
+                <input type="date" id="shift_date" name="shift_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="shift_start_time">Shift Start Time</label>
+                <input type="time" id="shift_start_time" name="shift_start_time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="shift_end_time">Shift End Time</label>
+                <input type="time" id="shift_end_time" name="shift_end_time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="department">Department</label>
+                <select id="department" name="department" required>
+                    <option value="Surgery">Surgery</option>
+                    <option value="ICU">ICU</option>
+                    <option value="Emergency">Emergency</option>
+                    <option value="Radiology">Radiology</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="break_time">Break Time</label>
+                <input type="time" id="break_time" name="break_time">
+            </div>
+
+            <div class="form-group">
+                <label for="shift_status">Shift Status</label>
+                <select id="shift_status" name="shift_status" required>
+                    <option value="Scheduled">Scheduled</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                    <option value="Pending">Pending</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Additional Notes</label>
+                <textarea id="notes" name="notes" rows="4"></textarea>
+            </div>
+
+            <button type="submit">Save Shift</button>
+        </form>
+    </div>
+
+    <script>
+        // Simple form validation in JavaScript (internal JS)
+        function validateForm() {
+            var startTime = document.getElementById("shift_start_time").value;
+            var endTime = document.getElementById("shift_end_time").value;
+            
+            // Check if start time is earlier than end time
+            if (endTime <= startTime) {
+                alert("End time must be later than start time.");
+                return false;  // Prevent form submission
+            }
+            return true;  // Allow form submission
+        }
+    </script>
+</body>
+</html>

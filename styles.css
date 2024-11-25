@@ -1,0 +1,492 @@
+
+
+/* General body styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* Navbar styling */
+.navbaritems {
+    background-color:#3370e9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 20px;
+}
+
+.logoo {
+    width: 5%;
+    margin-left: 7px;
+}
+
+/* Header styling */
+header {
+    background-image: url("docter1.jpg"); /* Replace with your header image */
+    background-size:auto;
+    background-position: center;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(247, 247, 249);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Why HMS Section */
+#why-hms {
+    padding: 40px;
+    background-color: #f9f9f9;
+}
+
+.why-hms-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.why-hms-block {
+    background-color: #165dea;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transform: skew(5deg); /* Slight skew for visual effect */
+}
+
+.why-hms-block h3 {
+    margin-top: 0;
+}
+
+.why-hms-block p {
+    margin: 0;
+}
+
+
+    .why-hms-container {
+        grid-template-columns: repeat(1, 1fr); /* Stack on small screens */
+    }
+
+
+.logo-image {
+    height: auto;
+    width: 100%;
+    border-radius: 20%;
+}
+
+
+
+/* Main navigation styling */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Flexbox for horizontal layout */
+    align-items: center; /* Center items vertically */
+}
+
+nav ul li {
+    margin-right: 20px; /* Space between items */
+}
+
+/* Main nav links styled as buttons */
+nav ul li a {
+    font-size: 1.3em; /* Larger font size */
+    line-height: 1.6em;
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px; /* Padding for button effect */
+    display: flex;
+    align-items: center;
+    background-color: transparent; /* Transparent background */
+    border-radius: 4px;
+    
+}
+
+nav ul li a i {
+    margin-right: 8px; /* Space between icon and text */
+}
+
+
+
+/* Dropdown styling */
+.dropdown {
+    display: none; /* Hide dropdown by default */
+    position: absolute; /* Position relative to parent */
+    background-color: #ffffff;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for dropdown */
+    
+}
+
+/* Dropdown links styling */
+.dropdown a {
+    font-size: 1em; /* Font size for dropdown links */
+    color: #333; /* Text color */
+    padding: 8px 14px; /* Padding for dropdown links */
+    text-decoration: none; /* No underline */
+    display: block; /* Block display for dropdown links */
+    transition: background-color 0.2s ease; /* Smooth background transition */
+}
+
+
+
+
+
+
+/* Additional styles for chatbot */
+#chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #165dea;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    z-index: 1000;
+}
+
+#chatbot {
+    display: none;
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    width: 300px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.chat-header {
+    background-color: #165dea;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.chat-content {
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+.appointment-form {
+    margin-top: 10px;
+}
+
+.appointment-form input, .appointment-form select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.appointment-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #165dea;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.language-button {
+    margin: 5px;
+    padding: 10px;
+    background-color: #165dea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Footer styling */
+footer {
+    background-color: #3370e9;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Chatbot Icon */
+#chatbot-icon {
+    background-color: #165dea;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+/* Chatbot Window */
+#chatbot {
+
+    height: 75%;
+    right: 20px;
+    width: 350px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+   
+}
+
+.chat-header {
+    background-color: #165dea;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.chat-content {
+    padding: 10px;
+   
+    overflow-y: auto;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.chat-input button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #165dea;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Appointment Form Styling */
+.appointment-form {
+    background-color: #ecefcf;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+
+
+.appointment-form input, .appointment-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.appointment-form button {
+    padding: 10px 20px;
+    background-color: #3370e9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbaritems {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .logoo {
+        margin-bottom: 10px;
+    }
+}
+
+.contact-social-section {
+    display: flex;
+    align-items: center;
+    background-color: #d3dbe8;
+    padding: 40px 20px;
+    border-top: 2px solid #e0e0e0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.contact-social-section div {
+    max-width: 400px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+
+
+.contact-social-section p {
+    margin: 4px 0;
+    font-size: 1em;
+    color: #555;
+}
+
+.social-media h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.social-media a {
+    color: #0073e6;
+    font-size: 1em;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.social-media a:hover {
+    color: #ffffff;
+    background-color: #0073e6;
+}
+
+
+
+@media (min-width: 768px) {
+    .contact-social-section {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 40px 60px;
+    }
+}
+
+/*=======================shifts*/
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.shift-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 1rem;
+    color: #333;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    input, select, textarea {
+        font-size: 0.9rem;
+        padding: 6px;
+    }
+
+    button {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}

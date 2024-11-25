@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Electronic Medical Records</title>
+    <style>
+        /* Basic Responsive Styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        label, input, button {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Electronic Medical Records (EMR)</h1>
+
+        <!-- Generate Patient ID (Admin/Initial setup) -->
+        <form id="generate-form">
+            <label for="patientName">Patient Name:</label>
+            <input type="text" id="patientName" name="patientName" required>
+            
+            <label for="patientID">Generated Patient ID:</label>
+            <input type="text" id="patientID" name="patientID" readonly>
+            
+            <button type="button" onclick="generatePatientID()">Generate Patient ID</button>
+        </form>
+
+        <hr>
+
+        <!-- Access EMR using Patient ID (For patient) -->
+        <form id="access-form">
+            <label for="inputPatientID">Enter Patient ID to Access EMR:</label>
+            <input type="text" id="inputPatientID" name="inputPatientID" required>
+            
+            <button type="button" onclick="accessEMR()">Access EMR</button>
+        </form>
+
+        <div id="emr-data" style="display: none;">
+            <h3>Your EMR Data:</h3>
+            <p id="emrContent">Diagnosis: Example Diagnosis</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to generate a unique Patient ID and store it in localStorage
+        function generatePatientID() {
+            const patientID = crypto.randomUUID();
+            document.getElementById('patientID').value = patientID;
+            localStorage.setItem('patientID', patientID); // Store ID in localStorage
+            alert("Patient ID generated! Keep it safe for future access.");
+        }
+
+        // Function to access EMR data
+        function accessEMR() {
+            const inputID = document.getElementById('inputPatientID').value.trim();
+            const storedPatientID = localStorage.getItem('patientID'); // Retrieve ID from localStorage
+            
+            if (inputID === storedPatientID) {
+                document.getElementById('emr-data').style.display = 'block';
+                document.getElementById('emrContent').innerText = "Diagnosis: Hypertension"; // Example data
+            } else {
+                alert("Invalid Patient ID. Please try again.");
+            }
+        }
+
+        // Optional: On page load, you can retrieve the Patient ID if you want to display it.
+        window.onload = function() {
+            const storedPatientID = localStorage.getItem('patientID');
+            if (storedPatientID) {
+                document.getElementById('patientID').value = storedPatientID;
+            }
+        };
+    </script>
+
+</body>
+</html>

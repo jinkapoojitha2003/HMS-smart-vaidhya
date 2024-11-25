@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Management - Role-Based Form</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #004d80;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            color: #004d80;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+        .section input, .section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #004d80;
+            color: #fff;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #003366;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Inpatient Management</h1>
+
+    <!-- Role Selection -->
+    <form action="ip_management.php" method="POST">
+        <div class="section">
+            <h2>Select Your Role</h2>
+            <select id="roleSelect" name="role" onchange="toggleSections()" required>
+                <option value="">Select Role</option>
+                <option value="receptionist">Receptionist</option>
+                <option value="nurse">Nurse</option>
+                <option value="doctor">Doctor</option>
+                <option value="billing">Billing</option>
+            </select>
+        </div>
+
+        <!-- Patient Details Section -->
+        <div class="section" id="patientDetails">
+            <h2>Patient Details</h2>
+            <input type="text" name="patient_id" placeholder="Patient ID" required>
+            <input type="text" name="patient_name" placeholder="Patient Name" required>
+            <input type="number" name="age" placeholder="Age" required>
+            <input type="text" name="contact" placeholder="Contact" required>
+            <textarea name="address" placeholder="Address" required></textarea>
+        </div>
+
+        <!-- Admission Information Section -->
+        <div class="section" id="admissionInfo">
+            <h2>Admission Information</h2>
+            <input type="datetime-local" name="admission_datetime" placeholder="Admission Date & Time">
+            <input type="text" name="department" placeholder="Department">
+            <input type="text" name="ward_room" placeholder="Ward/Room">
+            <input type="text" name="bed_number" placeholder="Bed Number">
+            <textarea name="reason_for_admission" placeholder="Reason for Admission/Diagnosis"></textarea>
+        </div>
+
+        <!-- Treatment Details Section -->
+        <div class="section" id="treatmentDetails">
+            <h2>Treatment Details</h2>
+            <input type="text" name="doctor_assigned" placeholder="Doctor Assigned">
+            <textarea name="treatment_plan" placeholder="Treatment Plan/Procedures"></textarea>
+            <textarea name="medications" placeholder="Medications Prescribed"></textarea>
+            <textarea name="nursing_instructions" placeholder="Nursing Care/Special Instructions"></textarea>
+        </div>
+
+        <!-- Billing Information Section -->
+        <div class="section" id="billingInfo">
+            <h2>Billing Information</h2>
+            <input type="text" name="estimated_cost" placeholder="Estimated Cost">
+            <textarea name="insurance_details" placeholder="Insurance Details"></textarea>
+            <input type="text" name="advance_payment" placeholder="Advance Payment">
+            <textarea name="charges" placeholder="Charges (Room, Tests, Services)"></textarea>
+        </div>
+
+        <!-- Discharge Summary Section -->
+        <div class="section" id="dischargeSummary">
+            <h2>Discharge Summary</h2>
+            <input type="datetime-local" name="discharge_datetime" placeholder="Discharge Date & Time">
+            <textarea name="final_diagnosis" placeholder="Final Diagnosis"></textarea>
+            <textarea name="treatment_summary" placeholder="Summary of Treatment"></textarea>
+            <textarea name="discharge_instructions" placeholder="Discharge Instructions"></textarea>
+        </div>
+
+        <button type="submit">Submit IP Details</button>
+    </form>
+</div>
+
+<script>
+    // Hide all sections initially
+    document.getElementById("patientDetails").style.display = "none";
+    document.getElementById("admissionInfo").style.display = "none";
+    document.getElementById("treatmentDetails").style.display = "none";
+    document.getElementById("billingInfo").style.display = "none";
+    document.getElementById("dischargeSummary").style.display = "none";
+
+    // Toggle sections based on role selection
+    function toggleSections() {
+        const role = document.getElementById("roleSelect").value;
+        
+        // Hide all sections first
+        document.getElementById("patientDetails").style.display = "none";
+        document.getElementById("admissionInfo").style.display = "none";
+        document.getElementById("treatmentDetails").style.display = "none";
+        document.getElementById("billingInfo").style.display = "none";
+        document.getElementById("dischargeSummary").style.display = "none";
+        
+        // Show sections based on selected role
+        if (role === "receptionist") {
+            document.getElementById("patientDetails").style.display = "block";
+            document.getElementById("admissionInfo").style.display = "block";
+        } else if (role === "nurse") {
+            document.getElementById("admissionInfo").style.display = "block";
+            document.getElementById("treatmentDetails").style.display = "block";
+        } else if (role === "doctor") {
+            document.getElementById("treatmentDetails").style.display = "block";
+            document.getElementById("dischargeSummary").style.display = "block";
+        } else if (role === "billing") {
+            document.getElementById("billingInfo").style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>
