@@ -2,7 +2,7 @@
 // Database connection settings
 $host = 'localhost:3306';  // Database host
 $username = 'root';   // Database username
-$password = 'Poojitha';       // Database password
+$password = '';       // Database password
 $database = 'hospital_management';  // Database name
 
 // Create connection
