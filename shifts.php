@@ -2,7 +2,7 @@
 // Database connection
 $servername = "localhost:3306";
 $username = "root";
-$password = "Poojitha";
+$password = "";
 $dbname = "hospital_management"; // Change this to your database name
 
 // Create connection
