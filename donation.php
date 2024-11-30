@@ -2,7 +2,7 @@
 // Database connection parameters
 $servername = "localhost"; // Or the server where your database is hosted
 $username = "root"; // Your MySQL username
-$password = "Poojitha"; // Your MySQL password
+$password = ""; // Your MySQL password
 $dbname = "hospital_management"; // Your database name
 
 // Create connection
