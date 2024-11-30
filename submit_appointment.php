@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost:3306"; // or your server IP
 $username = "root"; // your database username
-$password = "Poojitha"; // your database password
+$password = ""; // your database password
 $dbname = "hospital_management"; // your database name
 
 // Create connection
